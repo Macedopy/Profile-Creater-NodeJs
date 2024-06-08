@@ -1,4 +1,5 @@
 import { UserModel } from "../../DTOs/userModel";
+import { databaseConnection } from "../Configurations/dbConnection";
 
 const data: UserModel[] = 
 [
