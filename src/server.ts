@@ -1,3 +1,4 @@
+import { Client } from "pg";
 import appCreating from "./app";
 
 const app  = appCreating();

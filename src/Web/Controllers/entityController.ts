@@ -3,6 +3,7 @@ import { createUserService, deleteUserService, getUserByIdService, getUserServic
 import { noContent } from "../../utils/http-helper";
 import { UserModel } from "../../DTOs/userModel";
 
+
 export const getUser = async (req: Request, res: Response) => 
     {
         const httpResponse = await getUserService();

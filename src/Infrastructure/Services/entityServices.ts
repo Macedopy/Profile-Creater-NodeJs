@@ -18,8 +18,12 @@ const validator = async (data: any) =>
 
 export const getUserService = async () => 
     {
-        const data = await repositorie.findAllUsers();
-        return validator(data);
+        await repositorie.findAllUsers().then(users => 
+            {
+                const jsonData = JSON.parse(JSON.stringify(users));
+                return validator(jsonData);
+            }).
+            catch(err => console.error('Error while attempting to retrieve All Users ', err));
     }
 
 export const getUserByIdService = async (id: number) => 

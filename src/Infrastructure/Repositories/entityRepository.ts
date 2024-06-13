@@ -1,5 +1,5 @@
 import { UserModel } from "../../DTOs/userModel";
-import { databaseConnection } from "../Configurations/dbConnection";
+import { databaseConnection } from "../Configurations/connectionDB";
 
 const data: UserModel[] = 
 [
@@ -25,6 +25,20 @@ const data: UserModel[] =
 
 export const findAllUsers = async(): Promise<UserModel[]> =>
 {
+    (async () => {
+        try
+        {
+            const client = await databaseConnection();
+            const fetchUsers = await client.query('SELECT * FROM users');
+            const user: UserModel[] = fetchUsers.rows;
+            client.end;
+            return user;
+        } catch
+        {
+            
+        }
+    }
+    )
     return data;
 }
 
