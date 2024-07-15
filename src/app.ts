@@ -5,10 +5,9 @@ import { databaseConnection } from "./Infrastructure/Configurations/connectionDB
 
 function appCreating() {
     const app  = express();
-    databaseConnection();
 
     app.use(express.json());
-    app.use("/", router)
+    app.use("/api", router)
 
     return app;
 }
